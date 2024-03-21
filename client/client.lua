@@ -271,29 +271,49 @@ RegisterNetEvent('razed-cryptomining:client:CheckIfOwnedCrypto', function()
 end)
 
 RegisterNetEvent('razed-cryptomining:client:sendMail', function()
-    if Config.Email == true then
-    TriggerServerEvent('qb-phone:server:sendNewMail', {
-        sender = Config.PurchaseEmailSender,
-        subject = Config.PurchaseEmailSubject,
-        message = Config.PurchaseEmailText,
-    })
-    else if Config.Email == false then
+    if Config.Email then
+        if Config.Phone == 'roadphone' then
+            local data = {
+                sender = Config.PurchaseEmailSender,
+                subject = Config.PurchaseEmailSubject,
+                message = Config.PurchaseEmailText
+            }
+            exports['roadphone']:sendMail(data)
+        elseif Config.Phone == 'qbphone' then
+            TriggerServerEvent('qb-phone:server:sendNewMail', {
+                sender = Config.PurchaseEmailSender,
+                subject = Config.PurchaseEmailSubject,
+                message = Config.PurchaseEmailText,
+            })
+        else
+            print('Invalid phone system configured')
+        end
+    else
         print('Bought Miner')
     end
-end
 end)
 
 RegisterNetEvent('razed-cryptomining:client:sendGPUMail', function()
-    if Config.Email == true then
-    TriggerServerEvent('qb-phone:server:sendNewMail', {
-        sender = Config.gpuEmailSender,
-        subject = Config.gpuEmailSubject,
-        message = Config.gpuEmailText,
-    })
-    else if Config.Email == false then
+    if Config.Email then
+        if Config.Phone == 'roadphone' then
+            local data = {
+                sender = Config.gpuEmailSender,
+                subject = Config.gpuEmailSubject,
+                message = Config.gpuEmailText
+            }
+            exports['roadphone']:sendMail(data)
+        elseif Config.Phone == 'qbphone' then
+            TriggerServerEvent('qb-phone:server:sendNewMail', {
+                sender = Config.gpuEmailSender,
+                subject = Config.gpuEmailSubject,
+                message = Config.gpuEmailText,
+            })
+        else
+            print('Invalid phone system configured')
+        end
+    else
         print('Bought Miner')
     end
-end
 end)
 
 CreateThread(function()
