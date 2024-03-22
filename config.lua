@@ -13,6 +13,7 @@ Config.Target = 'qb' -- 'qb' or 'ox' depending on the target you use
 
 Config.Crypto = 'qb' -- 'qb' or 'renewed-phone' depending on the crypto resource you use
 Config.RenewedCryptoType = "gne" -- "gne" or "shung" or "xcoin" or "lme" - only change if using renewed phone
+Config.Phone = 'qb' -- 'roadphone' or 'qb'
 
 Config.Email = true -- if true, it will send the player the emails, if false it wont send the emails
 Config.PurchaseEmailSender = 'Jonathan Sanders'
