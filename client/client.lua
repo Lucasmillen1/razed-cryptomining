@@ -279,7 +279,7 @@ RegisterNetEvent('razed-cryptomining:client:sendMail', function()
                 message = Config.PurchaseEmailText
             }
             exports['roadphone']:sendMail(data)
-        elseif Config.Phone == 'qbphone' then
+        elseif Config.Phone == 'qb' then
             TriggerServerEvent('qb-phone:server:sendNewMail', {
                 sender = Config.PurchaseEmailSender,
                 subject = Config.PurchaseEmailSubject,
@@ -302,7 +302,7 @@ RegisterNetEvent('razed-cryptomining:client:sendGPUMail', function()
                 message = Config.gpuEmailText
             }
             exports['roadphone']:sendMail(data)
-        elseif Config.Phone == 'qbphone' then
+        elseif Config.Phone == 'qb' then
             TriggerServerEvent('qb-phone:server:sendNewMail', {
                 sender = Config.gpuEmailSender,
                 subject = Config.gpuEmailSubject,
